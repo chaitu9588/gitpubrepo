@@ -1,0 +1,42 @@
+INSTALL JENKINS USINF UBUNTUEC2 INSTANCE
+
+1. first of all launch ec2 ubuntu instance(allow all port or 8080 because jenkins runs on 8080 port)
+2. take an ssh on ubuntu
+3. sudo -i
+4. install java using following commands,link--->(https://www.jenkins.io/doc/book/installing/linux/)
+
+--->sudo apt update
+
+--->sudo apt install fontconfig openjdk-17-jre
+
+--->java -version=
+
+--->openjdk version "17.0.8" 2023-07-18
+
+--->OpenJDK Runtime Environment (build 17.0.8+7-Debian-1deb12u1)
+
+--->OpenJDK 64-Bit Server VM (build 17.0.8+7-Debian-1deb12u1, mixed mode, sharing)
+
+5. install jenkins ubuntu (Long Term Support release),link--->(https://www.jenkins.io/doc/book/installing/linux/#long-term-support-release)
+
+--->sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+
+--->echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+--->sudo apt-get update
+
+--->sudo apt-get install jenkins
+
+
+6. run this command
+come back to ubuntu user using logout
+toh aisa dikhega ----->ubuntu@ip-172-31-33-44:~$ cat /var/lib/jenkins/secrets/initialAdminPassword <--run this command
+toh ek password generate hoga 
+
+7. then hit public ip with publicip:8080 port 
+
+ek page open hoga vaha ye password paste karo ,click on select plugin to install --->next---->deselect all the plugins which are already selected by default
+install--->then add user , pass ,confirm ,full-admin ....save and continue and jenkins dashboard will be open
